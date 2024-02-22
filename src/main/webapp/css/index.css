@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background: linear-gradient( to left ,#e66465, #439995);
+}
+
+nav{
+    height: 100px;
+    border: solid red;
+}
+nav ul {
+    display: flex;
+   
+}
+
