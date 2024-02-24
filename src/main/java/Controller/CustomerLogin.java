@@ -12,12 +12,13 @@ import Dao.CustomerDao;
 import Dto.Customer;
 
 @WebServlet("/Customerlogin")
-public class CustomerLogin  extends HttpServlet
-{
+public class CustomerLogin extends HttpServlet {
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		
 		String cid=req.getParameter("custid");
 		int customerid=Integer.parseInt(cid);
 		
@@ -29,13 +30,13 @@ public class CustomerLogin  extends HttpServlet
 		if(customer==null) 
 		{
 			resp.getWriter().print("<h1>Invalid CUSTOMER_ID</h1>");
-			req.getRequestDispatcher("Home.html").include(req, resp);
+			req.getRequestDispatcher("customer_login.html").include(req, resp);
 		}
 		else 
 		{
 			if(customer.getPwd().equals(password)) 
 			{
-				resp.getWriter().print("<h1>Login Succesfully</h1>");
+				resp.getWriter().print("<div id='loginSuccess'> <h1>Login Succesfully</div>");
 				//session tracking
 				req.getSession().setAttribute("customer", customer);//it is use to store and set the info customer or user which will be used in future
 				req.getRequestDispatcher("customer_home.html").include(req, resp);
@@ -43,11 +44,11 @@ public class CustomerLogin  extends HttpServlet
 			else 
 			{
 				resp.getWriter().print("<h1>Invalid Password</h1>");
-				req.getRequestDispatcher("index.html").include(req, resp);
+				req.getRequestDispatcher("customer_login.html").include(req, resp);
 			}
 		}
 		
 		
-		
 	}
+
 }

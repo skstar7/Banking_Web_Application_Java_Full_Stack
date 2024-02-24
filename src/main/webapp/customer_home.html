@@ -2,15 +2,77 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Customer Home Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction:column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .message {
+    font-size: 24px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    display: block; /* Change display to block */
+    margin-bottom: 20px; /* Add margin-bottom */
+  }
+  .highlight {
+    color: #007bff;
+    font-weight: bold;
+  }
+  button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0 20px;
+  }
+  button:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+  }
+  
+  #loginSuccess{
+  color: green;
+  }
+  
+</style>
 </head>
 <body>
 
-	<h1>Welcome to customer home page</h1>
-	<a href="select_account_type.jsp">
-		<button>Create_account</button>
-	</a>
+<div class="container">
+  <div class="message">
+    <span class="highlight">Welcome</span> to our Customer Home Page!
+  </div>
 
-	<a href="fetchActiveAccount""><button>Fetch active account</button></a>
+ 
+  
+  <a href="select_account_type.jsp"><button>Create Account</button></a>
+  <a href="fetchActiveAccount"><button>Fetch Active Account</button></a>
+</div>
+
+
+
 </body>
 </html>
