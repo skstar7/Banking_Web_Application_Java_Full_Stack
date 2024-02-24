@@ -2,28 +2,64 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Customer Sign Up</title>
+<link rel="stylesheet" href="css/customer_signup.css" />
+
 </head>
 <body>
-	<h1>Welcome_To_Customer_Sign_Up_Page</h1>
+  <h1>Welcome To Customer Sign Up Page</h1>
 
-	<form action="customersignup">
-		<label for="name">Name</label> <input type="text" id="name"
-			name="name" placeholder="Enter Your name"> <br> <br>
+  <form action="customersignup" onsubmit="return validateForm()" method="post">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter Your name" required><br><br>
 
-		<label for="num">MOB</label> <input type="tel" id="num" name="mob"
-			placeholder="Enter Your Number"> <br> <br> <label
-			for="pwd">Password</label> <input type="password" id="pwd" name="pwd"
-			placeholder="Enter Your Password"> <br> <br> <label
-			for="eid">Email</label> <input type="email" id="eid" name="email"
-			placeholder="Enter Your Email"> <br> <br> <label
-			for="gen">Gender</label> <input type="radio" id="gen" name="gender"
-			value="male">M <input type="radio" id="gen" name="gender"
-			value="female">F <br> <br> <label for="dob">DOB</label>
-		<input type="date" id="dob" name="dob"> <br> <br> <br>
-		<button type="submit">Sign_Up</button>
-		<button type="reset">Cancle</button>
+    <label for="num">MOB</label>
+    <input type="tel" id="num" name="mob" placeholder="Enter Your Number" required><br><br>
 
-	</form>
+    <label for="pwd">Password</label>
+    <input type="password" id="pwd" name="pwd" placeholder="Enter Your Password" required><br><br>
+
+    <label for="eid">Email</label>
+    <input type="email" id="eid" name="email" placeholder="Enter Your Email" required><br><br>
+
+    <label for="gen">Gender</label>
+    <input type="radio" id="male" name="gender" value="male" required> Male
+    <input type="radio" id="female" name="gender" value="female" required> Female<br><br>
+
+    <label for="dob">DOB</label>
+    <input type="date" id="dob" name="dob" required><br><br><br>
+
+    <button type="submit">Sign Up</button>
+    <button type="reset">Cancel</button>
+  </form>
+  
+  
+  <script>
+  function validateForm() {
+    var name = document.getElementById("name").value;
+    var mob = document.getElementById("num").value;
+    var pwd = document.getElementById("pwd").value;
+    var email = document.getElementById("eid").value;
+    var gender = document.querySelector('input[name="gender"]:checked');
+    var dob = document.getElementById("dob").value;
+
+    if (name === "" || mob === "" || pwd === "" || email === "" || gender === null || dob === "") {
+      alert("All fields are required");
+      return false;
+    }
+
+    if (mob.length !== 10 || isNaN(mob)) {
+      alert("Mobile number should be 10 digits and numeric");
+      return false;
+    }
+
+    if (pwd.length < 5 || !/[a-zA-Z]/.test(pwd) || !/\d/.test(pwd)) {
+      alert("Password should be minimum 5 characters and contain at least one letter and one number");
+      return false;
+    }
+
+    return true;
+  }
+</script>
 </body>
 </html>
